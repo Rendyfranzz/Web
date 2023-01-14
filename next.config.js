@@ -1,6 +1,14 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
+const { withContentlayer } = require("next-contentlayer");
 
-module.exports = nextConfig
+const NextConfig ={
+  images: {
+    domains: [
+      "user-images.githubusercontent.com",
+    ],
+  },
+  eslint: {
+    dirs: ['src'],
+  },
+}
+module.exports = withContentlayer(NextConfig)
