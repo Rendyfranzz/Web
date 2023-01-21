@@ -1,11 +1,11 @@
 import Links from "./buttons/Links";
 import ThemeButton from "./buttons/ThemeButton";
-import TechIcons, { TechListType } from "./icons/TechIcon";
 
 
 export default function Header() {
     return (
-        <div className='flex items-center overflow-hidden sticky top-0 layout justify-center'>
+        <div className='sticky top-0 shadow-sm z-20'>
+            <nav className="flex items-center layout justify-center bg-white transition-colors dark:bg-dark dark:text-white">
             <div className="w-full flex justify-between">
             <ul className='flex flex-row justify-center items-center space-x-6 font-bold'>
                     {links.map(({ href, label }) => (
@@ -16,7 +16,7 @@ export default function Header() {
                 </ul>
                 <ThemeButton />
             </div>
-                
+            </nav>
         </div>
     )
 }

@@ -24,10 +24,11 @@ import Tooltip from './Tippy';
 export type TechListType = keyof typeof techList;
 
 export type TechIconsProps = {
+  size?:string
   techs: Array<TechListType>;
 } & React.ComponentPropsWithoutRef<'ul'>;
 
-export default function TechIcons({ className, techs }: TechIconsProps) {
+export default function TechIcons({ className, techs,size }: TechIconsProps) {
   return (
     <ul className='flex gap-2'>
       {techs.map((tech) => {
@@ -35,7 +36,7 @@ export default function TechIcons({ className, techs }: TechIconsProps) {
         const current = techList[tech];
         return (
             <li key={current.name} className='text-xl text-gray-700 dark:text-gray-200'>
-              <current.icon/>
+              <current.icon size={size}/>
             </li>
         );
       })}

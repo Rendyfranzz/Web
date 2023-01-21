@@ -6,6 +6,7 @@ import { Layout } from '@/components/Layout';
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { format, parseISO } from 'date-fns'
 import Image from 'next/image';
+import { Comment } from '@/components/Comment';
 
 const project = ({ project }: { project: Project }) => {
   const MDXContent = useMDXComponent(project.body.code)
@@ -23,13 +24,12 @@ const project = ({ project }: { project: Project }) => {
         <div className='space-y-3'>
           <MDXContent />
         </div>
+        <Comment/>
       </section>
 
     </Layout>
   )
 }
-
-
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = allProjects.map((project) => project.url);
   return {

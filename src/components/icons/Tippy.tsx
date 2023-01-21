@@ -20,7 +20,6 @@ export default function Tooltip({
 }: TooltipTextProps) {
   return (
     <TippyTooltip
-      title='hai'
       trigger='mouseenter'
       interactive
       html={
