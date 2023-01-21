@@ -39,11 +39,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const blog = allBlogs.find((blog) => blog.url === `/blog/${params?.slug}`);
-  if (!blog) {
-    return {
-      notFound: true,
-    }
-  }
   return {
     props: {
       blog
