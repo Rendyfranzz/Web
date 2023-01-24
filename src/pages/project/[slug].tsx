@@ -8,7 +8,7 @@ import { format, parseISO } from 'date-fns'
 import Image from 'next/image';
 import { Comment } from '@/components/Comment';
 
-const project = ({ project }: { project: Project }) => {
+const Project = ({ project }: { project: Project }) => {
   const MDXContent = useMDXComponent(project.body.code)
   return (
     <Layout>
@@ -47,4 +47,4 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 }
 
-export default project
+export default Project

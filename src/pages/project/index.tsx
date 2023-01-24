@@ -2,8 +2,8 @@ import Head from 'next/head'
 import { allProjects } from '../../../.contentlayer/generated'
 import { Layout } from '@/components/Layout'
 import { useLoad } from '@/hook/useLoad'
-import { useRouteLoad } from '@/hook/useRouteLoad'
 import { ProjectCard } from '@/components/content/project/ProjectCard'
+import { UseRouteLoad } from '@/hook/useRouteLoad'
 
 export async function getStaticProps() {
   const posts = allProjects
@@ -13,7 +13,7 @@ export async function getStaticProps() {
 export default function Home({ posts }: any) {
 
   const isLoaded = useLoad()
-  const routeLoad = useRouteLoad()
+  const routeLoad = UseRouteLoad()
 
 
   

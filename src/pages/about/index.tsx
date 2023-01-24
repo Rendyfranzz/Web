@@ -13,7 +13,7 @@ const index = () => {
         <div className='flex flex-col justify-center items-center'>
           <h1 className="mt-8 text-3xl font-bold">Projects</h1>
           <div className=' w-28 h-32 bg-slate-500 mt-4'>
-            <img src='' alt='' />
+            {/* <img src='' alt='' /> */}
           </div>
         </div>
         <div>

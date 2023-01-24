@@ -6,7 +6,6 @@ import rehypePrettyCode from "rehype-pretty-code"
 import rehypeSlug from "rehype-slug"
 import remarkGfm from "remark-gfm"
 
-
 const Blog = defineDocumentType(() => ({
 	name: "Blog",
 	filePathPattern: `blog/*.mdx`,
@@ -105,7 +104,26 @@ const Project = defineDocumentType(() => ({
 
 const contentLayerConfig = makeSource({
 	contentDirPath: "src/contents",
-	documentTypes: [Project,Blog]
+	documentTypes: [Project,Blog],
+	mdx: {
+		esbuildOptions(options) {
+		  options.target = "esnext"
+		  return options
+		},
+		remarkPlugins: [remarkGfm],
+		rehypePlugins: [
+		  [rehypeSlug],
+		  [rehypePrettyCode],
+		  [
+			rehypeAutolinkHeadings,
+			{
+			  properties: {
+				className: ['anchor'],
+			  },
+			},
+		  ],
+		],
+	  },
 	
 });
 

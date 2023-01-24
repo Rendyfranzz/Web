@@ -2,18 +2,20 @@ import { Blog, allBlogs } from '@/../.contentlayer/generated';
 import { Layout } from '@/components/Layout';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useMDXComponent } from 'next-contentlayer/hooks';
-import React from 'react'
+import * as React from 'react'
 import { format, parseISO } from 'date-fns'
 import Image from 'next/image';
 import { Comment } from '@/components/Comment';
 
-const blog = ({ blog }: { blog: Blog }) => {
+const Blog = ({ blog }: { blog: Blog }) => {
+
+    
   const MDXContent = useMDXComponent(blog.body.code)
   
   return (
     <Layout>
     <section className='layout'>
-      {blog.thumbnail && <Image src={blog.thumbnail} alt={blog.title} height={300} width={800} className='rounded-lg' />}
+      {blog.thumbnail && <Image src={blog.thumbnail} alt={blog.title} height={300} width={800} className='rounded-lg m-auto' />}
       <div className="mb-6 text-center">
         <h1 className="mb-1 text-3xl font-bold">{blog.title}</h1>
         <time dateTime={blog.date} className="text-sm text-slate-600">
@@ -39,10 +41,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const blog = allBlogs.find((blog) => blog.url === `/blog/${params?.slug}`);
+  // console.log(blog);
+  
   return {
     props: {
       blog
     }
   }
 }
-export default blog
+export default Blog

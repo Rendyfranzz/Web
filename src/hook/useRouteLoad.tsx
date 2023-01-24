@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-export const useRouteLoad = () => {
+export const UseRouteLoad = () => {
     const [routeLoad, setRouteLoad] = React.useState<boolean>(false);
 
     React.useEffect(() => {

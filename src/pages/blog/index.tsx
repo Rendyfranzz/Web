@@ -1,12 +1,12 @@
 import Head from 'next/head'
 import { allBlogs } from '@/../.contentlayer/generated'
 import { Layout } from '@/components/Layout'
-import { useRouteLoad } from '@/hook/useRouteLoad'
 import { BlogCard } from '@/components/content/blog/BlogCard'
+import { UseRouteLoad } from '@/hook/useRouteLoad'
 
 const index = ({ blog }: any) => {
   
-  const routeLoad = useRouteLoad()
+  const routeLoad = UseRouteLoad()
   return (
     <Layout>
       <section className={`layout ${routeLoad && 'fade-in-start'}`}>

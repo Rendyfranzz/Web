@@ -35,9 +35,11 @@ export default function TechIcons({ className, techs,size }: TechIconsProps) {
         if (!techList[tech]) return;
         const current = techList[tech];
         return (
+          <Tooltip key={current.name} content={<p>{current.name}</p>}>
             <li key={current.name} className='text-xl text-gray-700 dark:text-gray-200'>
               <current.icon size={size}/>
             </li>
+            </Tooltip>
         );
       })}
     </ul>
